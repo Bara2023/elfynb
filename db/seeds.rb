@@ -14,11 +14,11 @@ Elf.destroy_all
 
 
 
-paul = User.create(first_name: "Paul", last_name: "Portier", phone_number: "0606066060", email: "paul@lewagon.com", password: "123456")
-fama = User.create(first_name: "Fama", last_name: "Dieme", phone_number: "0606066061", email: "fama@lewagon.com", password: "123456")
-romain = User.create(first_name: "Romain", last_name: "Chavalle", phone_number: "0606066062", email: "romain@lewagon.com", password: "123456")
-benoit = User.create(first_name: "Benoit", last_name: "ledeuil", phone_number: "0606066063", email: "benoit@lewagon.com", password: "123456")
-gordon = User.create(first_name: "Gordon", last_name: "Giry", phone_number: "0606066064", email: "gordon@lewagon.com", password: "123456")
+paul = User.create(first_name: "Paul", last_name: "Porte", phone_number: "0606066060", email: "paul@lewagon.com", password: "123456")
+fama = User.create(first_name: "Fama", last_name: "Dilème", phone_number: "0606066061", email: "fama@lewagon.com", password: "123456")
+romain = User.create(first_name: "Romain", last_name: "Chevallier ", phone_number: "0606066062", email: "romain@lewagon.com", password: "123456")
+benoit = User.create(first_name: "Benoit", last_name: "Dcd", phone_number: "0606066063", email: "benoit@lewagon.com", password: "123456")
+gordon = User.create(first_name: "Gordon", last_name: "Freeman", phone_number: "0606066064", email: "gordon@lewagon.com", password: "123456")
 
 dobby = Elf.create(name: "Dobby", category: "Brave", age: "122", daily_price: "4", user_id: 1)
 kreattur = Elf.create(name: "Kreattur", category: "NRV", age: "14", daily_price: "10", user_id: 2)
