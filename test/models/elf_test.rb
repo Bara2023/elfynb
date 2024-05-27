@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ElveTest < ActiveSupport::TestCase
+class ElfTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
