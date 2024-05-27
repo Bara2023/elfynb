@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_27_122354) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_27_122516) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_price"
+    t.boolean "status"
+    t.bigint "user_id", null: false
+    t.bigint "elve_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["elve_id"], name: "index_bookings_on_elve_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "elves", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.integer "daily_price"
+    t.integer "age"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_elves_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +50,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_122354) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "elves", column: "elve_id"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "elves", "users"
 end
