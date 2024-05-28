@@ -1,2 +1,13 @@
 <h1>Elves#new</h1>
 <p>Find me in app/views/elves/new.html.erb</p>
+
+
+<%= simple_form_for(@elf) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :age %>
+  <%= f.input :category, :collection => %w[Mike Nick Jason Tim] %>
+  <%= f.input :description %>
+  <%= f.input :daily_price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>
