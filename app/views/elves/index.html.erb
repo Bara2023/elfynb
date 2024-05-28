@@ -2,9 +2,13 @@
 
 <% @elves.each do |elf| %>
   <ul>
+  <%= link_to elf.name, elf_path(elf) %>
     <li> <%= elf.name %> </li>
-    <li> <%= elf.age %> ans </li>
     <li> <%= elf.category %> </li>
     <li> <%= elf.daily_price %> </li>
+    <%= link_to "Delete",
+    elf_path(elf),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+    %>
   </ul>
 <% end %>
