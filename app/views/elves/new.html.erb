@@ -5,7 +5,7 @@
 <%= simple_form_for(@elf) do |f| %>
   <%= f.input :name %>
   <%= f.input :age %>
-  <%= f.input :category, :collection => %w[Mike Nick Jason Tim] %>
+  <%= f.input :category, :collection => [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Maître d'hôtel", "Musicien", "Ménage", "Nounou"] %>
   <%= f.input :description %>
   <%= f.input :daily_price %>
   <%= f.input :photo, as: :file %>
