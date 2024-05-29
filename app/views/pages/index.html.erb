@@ -1,0 +1,20 @@
+
+<h1>My Elves</h1>
+  <ul>
+    <% @elves.each do |elf| %>
+      <li><%= elf.name %></li>
+    <% end %>
+  </ul>
+
+
+<h1>My Bookings</h1>
+  <% @bookings.each do |booking| %>
+    <ul>
+      <li> <%= booking.elf.name %> </li>
+      <li> <%= booking.elf.category %> </li>
+      <li> <%= booking.total_price %>€ </li>
+      <li> <%= booking.start_date %> </li>
+      <li> <%= booking.end_date %> </li>
+    </ul>
+  <%= link_to "Voir mon elf", elf_path(booking.elf), class: "btn btn-flat" %>
+  <% end %>
