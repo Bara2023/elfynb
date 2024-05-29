@@ -9,5 +9,5 @@
     <li> <%= booking.start_date %> </li>
     <li> <%= booking.end_date %> </li>
   </ul>
-    <%= link_to "Voir mon elf", elf_path(booking.elf) %>
+    <%= link_to "Voir mon elf", elf_path(booking.elf), class: "btn btn-flat" %>
 <% end %>

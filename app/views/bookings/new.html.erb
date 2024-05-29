@@ -21,7 +21,8 @@
       <!-- target the HTML tag that will display the dynamic price -->
       Total price: <span data-dynamic-booking-price-target="priceHolder"><%= @elf.daily_price %></span> €
     </p>
-    <%= f.submit "Submit your booking", class: "btn btn-primary" %>
+    <%= f.submit "Submit your booking", class: "btn btn-flat" %>
   <% end %>
-    <%= link_to "Retour", elf_path(@elf) %>
+  </br>
+    <%= link_to "Retour", elf_path(@elf), class: "btn btn-flat" %>
 </div>
