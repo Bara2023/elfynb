@@ -36,4 +36,6 @@ file = URI.open('app/assets/images/monique.png')
 monique.photo.attach(io: file, filename: "monique.png", content_type: "image/png")
 monique.save
 
+
+
 puts 'seed over'
