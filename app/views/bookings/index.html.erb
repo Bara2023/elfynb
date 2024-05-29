@@ -1,0 +1,12 @@
+<h1>My bookings </h1>
+
+
+<% @bookings.each do |booking| %>
+  <ul>
+    <li> <%= booking.elf.name %> </li>
+    <li> <%= booking.elf.category %> </li>
+    <li> <%= booking.total_price %> </li>
+    <li> <%= booking.start_date %> </li>
+    <li> <%= booking.end_date %> </li>
+  </ul>
+<% end %>
