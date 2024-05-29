@@ -31,7 +31,7 @@ gem "jbuilder"
 
 #cloudinary
 
-gem "cloudinary"
+gem "cloudinary", "2.0.2"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
