@@ -1,12 +1,7 @@
 <div class="col">
   <%= link_to elf_path(elf), class: "text-decoration-none text-black" do %>
     <div class="card-product">
-    <% if elf.photo.attached? %>
       <%= cl_image_tag elf.photo.key %>
-    <% else %>
-      <%# <%= image_tag "https://unsplash.com/fr/photos/une-poupee-en-papier-de-la-saint-patrick-sur-fond-jaune-et-vert-XFjQQS7Qccg" %>
-     <img src="https://unsplash.com/fr/photos/garcon-en-chapeau-de-pere-noel-rouge-et-blanc-tY6eXMyGh2w">
-    <% end %>
       <div class="card-product-infos w-100">
         <div class="d-flex justify-content-between">
           <div>

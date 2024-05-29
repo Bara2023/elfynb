@@ -7,4 +7,5 @@ class Elf < ApplicationRecord
   validates :category, presence: true
   validates :daily_price, presence: true, numericality: { only_integer: true }
   validates :description, presence: true
+  validates :photo, presence: true
 end
