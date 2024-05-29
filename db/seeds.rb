@@ -23,19 +23,17 @@ kreattur.save
 
 winky = Elf.new(name: "Winky", category: "Jardinage", age: "42", daily_price: "15", user: romain, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?")
 file = URI.open('app/assets/images/winky.png')
-winky.photo.attach(io: file, filename: "winky.png", content_type: "image/png")
+winky.photo.attach(io: file, filename: "winky.png", content_type: "image/jpeg")
 winky.save
 
 hokey = Elf.new(name: "Hokey", category: "Sportif", age: "5", daily_price: "4", user: benoit, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?")
 file = URI.open('app/assets/images/hokey.png')
-hokey.photo.attach(io: file, filename: "hokey.png", content_type: "image/png")
+hokey.photo.attach(io: file, filename: "hokey.png", content_type: "image/jpeg")
 hokey.save
 
 monique = Elf.new(name: "Monique", category: "Artiste", age: "500", daily_price: "30", user: gordon, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?")
 file = URI.open('app/assets/images/monique.png')
-monique.photo.attach(io: file, filename: "monique.png", content_type: "image/png")
+monique.photo.attach(io: file, filename: "monique.png", content_type: "image/jpeg")
 monique.save
-
-
 
 puts 'seed over'
