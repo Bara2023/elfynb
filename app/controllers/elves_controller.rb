@@ -5,6 +5,13 @@ class ElvesController < ApplicationController
 
   def index
     @elves = Elf.all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @elves.geocoded.map do |elf|
+      {
+        lat: elf.latitude,
+        lng: elf.longitude
+      }
+    end
   end
 
   def show
