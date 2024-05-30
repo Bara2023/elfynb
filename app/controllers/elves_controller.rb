@@ -1,7 +1,7 @@
 class ElvesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
-  before_action :set_elf, only: [:show, :destroy]
+  before_action :set_elf, only: [:show, :edit, :update, :destroy]
 
   def index
     @elves = Elf.all
@@ -29,6 +29,14 @@ class ElvesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @elf.update(elves_params)
+    redirect_to elf_path(@elf)
   end
 
   def destroy
