@@ -1,12 +1,40 @@
-<h1>Elves#show</h1>
-    <h2> <%= @elf.name %> </h2>
- <ul>
-    <li> <%= @elf.age %> ans </li>
-    <li> <%= @elf.category %> </li>
-    <li> <%= @elf.daily_price %> € </li>
-    <li> <%= @elf.description %> </li>
-  </ul>
+<div class="container-show-elf">
+  <div class="content-show-elf">
+    <h1> <%= @elf.name %> </h1>
+    <%= cl_image_tag @elf.photo.key, class: "img-show"%>
+    <i class="fa-solid fa-input-numeric"><%= @elf.age %> ans</i>
+    <p><%= @elf.category %></p>
+    <%= @elf.description %>
+    <div class="navigation">
+<%= link_to "Retour", root_path, class: "btn btn-flat" %>
+<%= link_to "Modifier mon elf", edit_elf_path(@elf), class: "btn btn-flat" %>
+    </div>
+  </div>
 
-  <%= link_to "Retour", root_path, class: "btn btn-flat" %>
-  <%= link_to "Réserver", new_elf_booking_path(@elf), class: "btn btn-flat" %>
-  <%= link_to "Modifier mon elf", edit_elf_path(@elf), class: "btn btn-flat" %>
+  <div class="formulaire">
+    <p><%= @elf.daily_price %> € par jour</p>
+    <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @elf.daily_price %>">
+      <%= simple_form_for [@elf, @booking], html: { data: { action: 'change->dynamic-booking-price#updatePrice' }} do |f| %>
+        <%= f.input :start_date, as: :string, input_html: {
+          data: {
+            controller: "datepicker",
+            dynamic_booking_price_target: 'startDateInput',
+          }
+        } %>
+
+        <%= f.input :end_date, as: :string, input_html: {
+          data: {
+            controller: "datepicker",
+            dynamic_booking_price_target: 'endDateInput',
+          }
+        } %>
+
+        <p>
+          Prix total: <span data-dynamic-booking-price-target="priceHolder"><%= @elf.daily_price %></span> €
+        </p>
+        <%= f.submit "Réserver", class: "btn btn-flat" %>
+      <% end %>
+      </br>
+    </div>
+  </div>
+</div>
