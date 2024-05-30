@@ -34,7 +34,7 @@ class ElvesController < ApplicationController
     if @elf.save
       redirect_to elf_path(@elf)
     else
-      render :new, status: :unprocessable_entity  
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -40,5 +40,4 @@ class Elf < ApplicationRecord
       disable: booked_dates_hashes
     }.to_json
   end
-
 end

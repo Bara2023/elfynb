@@ -2,6 +2,8 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :elf
 
+  validates :start_date, presence: true
+  validates :end_date, presence: true
   before_save :compute_total_price
 
   def compute_total_price

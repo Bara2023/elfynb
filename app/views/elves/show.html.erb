@@ -18,6 +18,7 @@
         <%= f.input :start_date, as: :string, input_html: {
           data: {
             controller: "datepicker",
+            datepicker_dates_value: @elf.flatpickr_booked_dates,
             dynamic_booking_price_target: 'startDateInput',
           }
         } %>
@@ -25,6 +26,7 @@
         <%= f.input :end_date, as: :string, input_html: {
           data: {
             controller: "datepicker",
+            datepicker_dates_value: @elf.flatpickr_booked_dates,
             dynamic_booking_price_target: 'endDateInput',
           }
         } %>
