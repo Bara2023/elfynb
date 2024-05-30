@@ -3,19 +3,20 @@
 
 <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @elf.daily_price %>">
   <%= simple_form_for [@elf, @booking], html: { data: { action: 'change->dynamic-booking-price#updatePrice' }} do |f| %>
-    <%= f.input :start_date, as: :string, input_html: {
-      data: {
-        controller: "datepicker",
-        dynamic_booking_price_target: 'startDateInput',
-      }
-    } %>
-
-    <%= f.input :end_date, as: :string, input_html: {
-      data: {
-        controller: "datepicker",
-        dynamic_booking_price_target: 'endDateInput',
-      }
-    } %>
+      <%= f.input :start_date, as: :string, input_html: {
+        data: {
+          controller: "datepicker",
+          datepicker_dates_value: @elf.flatpickr_booked_dates,
+          dynamic_booking_price_target: 'startDateInput',
+        }
+      } %>
+      <%= f.input :end_date, as: :string, input_html: {
+        data: {
+          controller: "datepicker",
+          datepicker_dates_value: @elf.flatpickr_booked_dates,
+          dynamic_booking_price_target: 'endDateInput',
+        }
+      } %>
 
     <p>
       <!-- target the HTML tag that will display the dynamic price -->
