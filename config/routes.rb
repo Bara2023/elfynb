@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :bookings, only: %w[new create]
   end
   resources :bookings, only: %w[index destroy]
+
+  get "dashboard", to: "pages#index"
 end
