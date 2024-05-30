@@ -43,14 +43,15 @@
                        <div class="card-elf">
                           <%= cl_image_tag(booking.elf.photo.key, crop: :thumb, gravity: :face) %>
                           <div class="card-elf-infos w-100">
+                                <h2> <%= booking.elf.name %></h2>
                             <div class="d-flex justify-content-between">
                               <div>
-                                <h2> <%= booking.elf.name %></h2>
-                                <p><%= truncate(booking.elf.description, length: 30, separator: ' ')%></p>
+                                <p>du <%= booking.start_date %></p>
+                                <p>au <%= booking.end_date %></p>
                               </div>
                               <div>
-                                <p><%= booking.elf.age %> ans</p>
-                                <p><%= booking.elf.daily_price %>€/Jour</p>
+                                <p>Total</p>
+                                <p><%= booking.total_price %>€</p>
                               </div>
                             </div>
                           </div>
