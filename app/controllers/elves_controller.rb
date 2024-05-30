@@ -9,7 +9,8 @@ class ElvesController < ApplicationController
     @markers = @elves.geocoded.map do |elf|
       {
         lat: elf.latitude,
-        lng: elf.longitude
+        lng: elf.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { elf: elf })
       }
     end
   end
@@ -27,7 +28,7 @@ class ElvesController < ApplicationController
     if @elf.save
       redirect_to elf_path(@elf)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity  
     end
   end
 
