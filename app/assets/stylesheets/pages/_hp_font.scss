@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  // src: url('/assets/fonts/harryp__-webfont.woff') format('truetype');
+  // src: url('/assets/fonts/harryp__-webfont.woff2') format('truetype');
+  src: asset-url('hp.ttf') format('truetype');
+}
