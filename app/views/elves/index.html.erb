@@ -1,14 +1,30 @@
 <div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner-image.jpg') %>);">
-    <div class="container">
-      <h1>Trouvez <strong>l'elf</strong> qui vous correspond !</h1>
-      <p>Besoin d'aide dans votre vie quotidienne ? </p>
-      <input class="form-control" type="text" placeholder="Chercher mon elf">
-    </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <h1>Trouvez <strong>l'elf</strong> qui vous correspond !</h1>
+        <p>Besoin d'aide dans votre vie quotidienne ? </p>
+        <%= form_with url: elves_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Trouver mon elf"
+            %>
+          <%= submit_tag "Rechercher", name: "", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
   </div>
+</div>
+
 
 <div class="container px-5">
   <div class="row row-cols-3 g-4">
-    <%= render @elves %>
+    <% if @elves.any? %>
+      <%= render @elves %>
+    <% else %>
+      <em>Sorry, no elves found.</em>
+    <% end %>
     <div style="width: 100%; height: 600px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"

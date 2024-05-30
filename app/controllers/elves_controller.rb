@@ -5,6 +5,11 @@ class ElvesController < ApplicationController
 
   def index
     @elves = Elf.all
+
+    if params[:query].present?
+      @elves = Elf.search_by_name_and_description_and_category(params[:query])
+    end
+
     # The `geocoded` scope filters only flats with coordinates
     @markers = @elves.geocoded.map do |elf|
       {
