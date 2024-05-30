@@ -1,20 +1,63 @@
 
-<h1>My Elves</h1>
-  <ul>
-    <% @elves.each do |elf| %>
-      <li><%= elf.name %></li>
-    <% end %>
-  </ul>
 
+<div class="container">
+    <div class="row mt-5">
 
-<h1>My Bookings</h1>
-  <% @bookings.each do |booking| %>
-    <ul>
-      <li> <%= booking.elf.name %> </li>
-      <li> <%= booking.elf.category %> </li>
-      <li> <%= booking.total_price %>€ </li>
-      <li> <%= booking.start_date %> </li>
-      <li> <%= booking.end_date %> </li>
-    </ul>
-  <%= link_to "Voir mon elf", elf_path(booking.elf), class: "btn btn-flat" %>
-  <% end %>
+        <!-- Colonne pour My Elves -->
+        <div class="col-md-6">
+        <div class="cards">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('elf_vert.webp') %>)">
+        My Elves
+      </div>
+
+      <% @elves.each do |elf| %>
+        <%= link_to elf_path(elf), class: "text-decoration-none text-black" do %>
+          <div class="card-elf">
+            <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
+            <div class="card-elf-infos w-100">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h2> <%= elf.name %></h2>
+                  <p><%= truncate(elf.description, length: 30, separator: ' ')%></p>
+                </div>
+                <div>
+                  <p><%= elf.age %> ans</p>
+                  <p><%= elf.daily_price %>€/Jour</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+      </div>
+
+      <!-- Colonne pour My Bookings -->
+        <div class="col-md-6">
+           <div class="cards">
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://c8.alamy.com/compfr/t34g0n/maisons-d-elf-en-forme-de-champignons-t34g0n.jpg)">
+                 My Bookings
+                  </div>
+                      <% @bookings.each do |booking| %>
+                      <%= link_to elf_path(booking.elf), class: "text-decoration-none text-black" do %>
+                       <div class="card-elf">
+                          <%= cl_image_tag(booking.elf.photo.key, crop: :thumb, gravity: :face) %>
+                          <div class="card-elf-infos w-100">
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <h2> <%= booking.elf.name %></h2>
+                                <p><%= truncate(booking.elf.description, length: 30, separator: ' ')%></p>
+                              </div>
+                              <div>
+                                <p><%= booking.elf.age %> ans</p>
+                                <p><%= booking.elf.daily_price %>€/Jour</p>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+               <% end %>
+            <% end %>
+        </div>
+      </div>
+  </div>
+</div>

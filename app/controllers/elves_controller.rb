@@ -5,11 +5,17 @@ class ElvesController < ApplicationController
 
   def index
     @elves = Elf.all
+
+    if params[:query].present?
+      @elves = Elf.search_by_name_and_description_and_category(params[:query])
+    end
+
     # The `geocoded` scope filters only flats with coordinates
     @markers = @elves.geocoded.map do |elf|
       {
         lat: elf.latitude,
-        lng: elf.longitude
+        lng: elf.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { elf: elf })
       }
     end
   end
@@ -27,7 +33,7 @@ class ElvesController < ApplicationController
     if @elf.save
       redirect_to elf_path(@elf)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity  
     end
   end
 
