@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.elf = @elf
     @booking.user = current_user
     if @booking.save
-      redirect_to bookings_path
+      redirect_to dashboard_path
     else
       render "elves/show", status: :unprocessable_entity
     end
