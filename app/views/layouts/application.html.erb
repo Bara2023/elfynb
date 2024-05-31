@@ -13,11 +13,12 @@
   </head>
 
 
-  <body style = "background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(104,154,157,0.20780812324929976) 50%, rgba(244,244,244,1) 100%)" >
+  <body style = "background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(104,154,157,0.20780812324929976) 50%, rgba(244,244,244,1) 100%); display: grid; grid-template-rows: auto 1fr auto; min-height: 100vh;" >
     <%= render "shared/navbar" %>
     <%= yield %>
-    <%= render "shared/footer" %>
+
     <%# <p class="notice"><%= notice %>
     <%# <p class="alert"><%= alert %>
+    <%= render "shared/footer" %>
   </body>
 </html>

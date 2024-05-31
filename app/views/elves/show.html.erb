@@ -17,7 +17,7 @@
     <p><%= @elf.daily_price %> € par jour</p>
     <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @elf.daily_price %>">
       <%= simple_form_for [@elf, @booking], html: { data: { action: 'change->dynamic-booking-price#updatePrice' }} do |f| %>
-        <%= f.input :start_date, as: :string, input_html: {
+        <%= f.input :start_date, label: "Date de début:", as: :string, input_html: {
           data: {
             controller: "datepicker",
             datepicker_dates_value: @elf.flatpickr_booked_dates,
@@ -25,7 +25,7 @@
           }
         } %>
 
-        <%= f.input :end_date, as: :string, input_html: {
+        <%= f.input :end_date, label: "Date de fin:", as: :string, input_html: {
           data: {
             controller: "datepicker",
             datepicker_dates_value: @elf.flatpickr_booked_dates,
@@ -38,7 +38,29 @@
         </p>
         <%= f.submit "Réserver", class: "btn btn-flat" %>
       <% end %>
+
       </br>
     </div>
   </div>
 </div>
+
+  <div class="container-reviews" id="reviews">
+    <div class="reviews-form">
+      <%= simple_form_for [@elf, @review], url: elf_reviews_path(@elf) do |form| %>
+        <%= form.input :rating, label: "Note sur 5:"%>
+        <%= form.input :comment, label: "Commentaire:" %>
+        <%= form.submit "Poster un commentaire", class: "btn btn-flat" %>
+      <% end %>
+    </div>
+    <div class="reviews-comment border-start border-1 border-secondary">
+      <h4>Commentaires:</h3>
+      <% @reviews.each do |review| %>
+        <div class="review-comment border-bottom border-1 border-secondary mt-3">
+          <strong><%= current_user.first_name%> </strong> a commenté le <%= review.created_at.strftime("%d/%m/%Y")%>
+          <p><%= review.rating %>/5 -
+          <%= review.comment %></p>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>

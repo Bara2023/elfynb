@@ -1,7 +1,10 @@
 <div class="col">
   <%= link_to elf_path(elf), class: "text-decoration-none text-black" do %>
-    <div class="card-product">
-      <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
+    <div class="card-product position-relative">
+      <span class="badge btn btn-outline-light position-absolute m-3"><%= elf.category %></span>
+      <% if elf.photo.attached? %>
+        <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
+      <% end %>
       <div class="card-product-infos w-100">
         <div class="d-flex justify-content-between">
           <div>

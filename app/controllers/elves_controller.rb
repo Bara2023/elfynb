@@ -29,6 +29,8 @@ class ElvesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @review = Review.new
+    @reviews = @elf.reviews
   end
 
   def new
@@ -65,6 +67,6 @@ class ElvesController < ApplicationController
   end
 
   def elves_params
-    params.require(:elf).permit(:name, :age, :category, :photo, :daily_price, :description)
+    params.require(:elf).permit(:name, :age, :category, :photo, :daily_price, :description, :address)
   end
 end

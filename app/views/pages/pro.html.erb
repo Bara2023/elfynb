@@ -6,13 +6,13 @@
         <!-- Colonne pour My Elves -->
         <div class="col-md-6">
         <div class="cards">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('elf_vert.webp') %>)">
+        <div class="card-category rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('elf_vert.webp') %>)">
         My Elves
       </div>
 
       <% @elves.each do |elf| %>
         <%= link_to elf_path(elf), class: "text-decoration-none text-black" do %>
-          <div class="card-elf">
+          <div class="card-elf rounded-3">
             <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
             <div class="card-elf-infos w-100">
 
@@ -34,15 +34,15 @@
       </div>
       </div>
 
-      <!-- Colonne pour My Bookings -->
-        <div class="col-md-6">
+<%# BOOKINGS %>
+   <div class="col-md-6">
            <div class="cards">
-              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://c8.alamy.com/compfr/t34g0n/maisons-d-elf-en-forme-de-champignons-t34g0n.jpg)">
+              <div class="card-category rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://c8.alamy.com/compfr/t34g0n/maisons-d-elf-en-forme-de-champignons-t34g0n.jpg)">
                  My Bookings
                   </div>
                       <% @bookings.each do |booking| %>
                       <%= link_to elf_path(booking.elf), class: "text-decoration-none text-black" do %>
-                       <div class="card-elf">
+                       <div class="card-elf rounded-3">
                           <%= cl_image_tag(booking.elf.photo.key, crop: :thumb, gravity: :face) %>
                           <div class="card-elf-infos w-100">
                                 <h2> <%= booking.elf.name %></h2>

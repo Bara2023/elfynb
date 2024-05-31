@@ -2,6 +2,7 @@ require "open-uri"
 
 User.destroy_all
 Elf.destroy_all
+Review.destroy_all
 
 User.create(first_name: "Paul", last_name: "Porte", phone_number: "0606066060", email: "test@test.com", password: "123456")
 
@@ -11,29 +12,73 @@ romain = User.create(first_name: "Romain", last_name: "Chevallier ", phone_numbe
 benoit = User.create(first_name: "Benoit", last_name: "Dcd", phone_number: "0606066063", email: "benoit@lewagon.com", password: "123456")
 gordon = User.create(first_name: "Gordon", last_name: "Freeman", phone_number: "0606066064", email: "gordon@lewagon.com", password: "123456")
 
-dobby = Elf.new(name: "Dobby", category: "Artiste", age: "122", daily_price: "4", user: paul, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?", address: "6 allée du cormier")
+dobby = Elf.new(name: "Dobby", category: "Artiste", age: "122", daily_price: "4", user: paul, description: "Dobby, un elfe de maison âgé de 122 ans, est un artiste accompli. Pour seulement 4 pièces d'or par jour, Dobby apporte créativité et magie à chaque tâche, transformant les travaux ménagers en œuvres d'art uniques et enchantées.", address: "6 allée du cormier")
 file = URI.open('app/assets/images/dobby.png')
 dobby.photo.attach(io: file, filename: "dobby.png", content_type: "image/png")
 dobby.save
 
-kreattur = Elf.new(name: "Kreattur", category: "Jardinier", age: "14", daily_price: "10", user: fama, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?", address: "2 rue de la paix")
+kreattur = Elf.new(name: "Kreattur", category: "Jardinier", age: "14", daily_price: "10", user: fama, description: "Kreattur est un jeune elfe de maison de 14 ans, spécialisé en jardinage. Pour 10 pièces d'or par jour, il entretient les jardins avec soin et expertise, cultivant plantes et fleurs avec une touche magique qui fait prospérer toute végétation.", address: "2 rue de la paix")
 file = URI.open('app/assets/images/kreacher.png')
 kreattur.photo.attach(io: file, filename: "kreattur.png", content_type: "image/png")
 kreattur.save
 
-winky = Elf.new(name: "Winky", category: "Chauffeur", age: "42", daily_price: "15", user: romain, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?", address: "12 rue de passy")
+winky = Elf.new(name: "Winky", category: "Chauffeur", age: "42", daily_price: "15", user: romain, description: "Winky, un elfe de maison de 42 ans, est un chauffeur expérimenté. Pour 15 pièces d'or par jour, il assure des trajets sûrs et confortables, alliant ponctualité et discrétion avec une touche de magie pour des voyages sans encombre.", address: "12 rue de passy")
 file = URI.open('app/assets/images/winky.jpeg')
 winky.photo.attach(io: file, filename: "winky.jpeg", content_type: "image/jpeg")
 winky.save
 
-hokey = Elf.new(name: "Hokey", category: "Coach Sportif", age: "5", daily_price: "4", user: benoit, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?", address: "5 place des victoires")
+hokey = Elf.new(name: "Hokey", category: "Coach Sportif", age: "5", daily_price: "4", user: benoit, description: "Hokey est un jeune elfe de maison de 5 ans, spécialisé en coaching sportif. Pour seulement 4 pièces d'or par jour, il motive et entraîne avec enthousiasme, apportant une énergie débordante et des conseils magiques pour améliorer vos performances sportives.", address: "5 place des victoires")
 file = URI.open('app/assets/images/hokey.jpeg')
 hokey.photo.attach(io: file, filename: "hokey.jpeg", content_type: "image/jpeg")
 hokey.save
 
-monique = Elf.new(name: "Monique", category: "Artiste", age: "500", daily_price: "30", user: gordon, description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi iure vel illum velit similique corrupti doloremque, ratione reiciendis, aspernatur ea officia saepe sed qui veritatis commodi mollitia ex nihil?", address: "52 avenue de l'opéra")
+monique = Elf.new(name: "Monique", category: "Artiste", age: "500", daily_price: "30", user: gordon, description: "Monique, une elfe de maison âgée de 500 ans, est une artiste de renom. Pour 30 pièces d'or par jour, elle apporte une expertise artistique inégalée, créant des œuvres magistrales et enchantées qui transforment n'importe quel espace en une galerie de magie et de beauté.", address: "52 avenue de l'opéra")
 file = URI.open('app/assets/images/monique.jpeg')
 monique.photo.attach(io: file, filename: "monique.jpeg", content_type: "image/jpeg")
 monique.save
+
+lucas = Elf.new(name: "Lucas", category: "Cuisinie", age: "250", daily_price: "20", user: gordon, description: "Lucas, un elfe de maison âgé de 250 ans, est un cuisinier exceptionnel. Pour 20 pièces d'or par jour, il prépare des plats magiques et délicieux, transformant chaque repas en une expérience culinaire inoubliable.", address: "14 rue des délices")
+file = URI.open('app/assets/images/dobby.png')
+lucas.photo.attach(io: file, filename: "dobby.png", content_type: "image/png")
+lucas.save
+
+elara = Elf.new(
+  name: "Elara",
+  category: "Ménage",
+  age: "300",
+  daily_price: "15",
+  user: gordon,
+  description: "Elara, une elfe de maison âgée de 300 ans, est une ménagère experte. Pour 15 pièces d'or par jour, elle maintient votre maison dans un état impeccable, apportant une touche de magie à chaque tâche ménagère.",
+  address: "23 rue des Charmes"
+)
+file = URI.open('app/assets/images/monique.jpeg')
+elara.photo.attach(io: file, filename: "monique.jpeg", content_type: "image/jpeg")
+elara.save
+
+thranduil = Elf.new(
+  name: "Thranduil",
+  category: "Ménage",
+  age: "450",
+  daily_price: "25",
+  user: gordon,
+  description: "Thranduil, un elfe de maison âgé de 450 ans, est un bibliothécaire érudit. Pour 25 pièces d'or par jour, il organise et entretient vos collections de livres avec une précision magique, transformant votre bibliothèque en un havre de connaissance.",
+  address: "17 rue des Sages"
+)
+file = URI.open('app/assets/images/kreacher.png')
+thranduil.photo.attach(io: file, filename: "kreattur.png", content_type: "image/png")
+thranduil.save
+
+arwen = Elf.new(
+  name: "Arwen",
+  category: "Nounou",
+  age: "200",
+  daily_price: "50",
+  user: gordon,
+  description: "Arwen, une elfe de maison âgée de 200 ans, est une nounou dévouée. Pour 50 pièces d'or par jour, elle veille sur vos enfants avec une attention et une magie bienveillantes, créant un environnement sûr et enchanté pour leur épanouissement.",
+  address: "7 boulevard des Protecteurs"
+)
+file = URI.open('app/assets/images/monique.jpeg')
+arwen.photo.attach(io: file, filename: "monique.jpeg", content_type: "image/jpeg")
+arwen.save
 
 puts 'seed over'
