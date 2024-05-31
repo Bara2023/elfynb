@@ -1,7 +1,9 @@
 <div class="col">
   <%= link_to elf_path(elf), class: "text-decoration-none text-black" do %>
     <div class="card-product">
-      <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
+      <% if elf.photo.attached? %>
+        <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
+      <% end %>
       <div class="card-product-infos w-100">
         <div class="d-flex justify-content-between">
           <div>

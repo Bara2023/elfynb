@@ -60,6 +60,6 @@ class ElvesController < ApplicationController
   private
 
   def elves_params
-    params.require(:elf).permit(:name, :age, :category, :photo, :daily_price, :description)
+    params.require(:elf).permit(:name, :age, :category, :photo, :daily_price, :description, :address)
   end
 end
