@@ -10,23 +10,23 @@
   <%= simple_form_for(@elf) do |f| %>
     <div class="row mb-5">
       <div class="col-5 me-3">
-        <%= f.input :name %>
-        <%= f.input :age %>
-        <%= f.input :category, :collection => [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Maître d'hôtel", "Musicien", "Ménage", "Nounou"] %>
+        <%= f.input :name, label: 'Nom' %>
+        <%= f.input :age, laber: 'Âge' %>
+        <%= f.input :category, label: 'Catégorie', :collection => [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Maître d'hôtel", "Musicien", "Ménage", "Nounou"] %>
         <%= f.input :photo, as: :file %>
       </div>
 
       <div class="col-5 ms-3">
         <%= f.input :description %>
-        <%= f.input :daily_price %>
-        <%= f.input :address,
+        <%= f.input :daily_price, label: 'Prix journalier' %>
+        <%= f.input :address, label: 'Adresse',
         input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
         wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
         %>
       </div>
 
       <div class="mt-5 mb-3">
-        <%= f.submit class: "btn btn-flat"%>
+        <%= f.submit class: "btn btn-flat", value:'Je loue mon elf'%>
       </div>
     </div>
   <% end %>
