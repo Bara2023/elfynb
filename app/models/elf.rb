@@ -17,6 +17,7 @@ class Elf < ApplicationRecord
   has_one_attached :photo
 
   has_many :bookings
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :age, presence: true, numericality: { only_integer: true }

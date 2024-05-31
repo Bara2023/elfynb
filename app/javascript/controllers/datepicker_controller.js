@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   disableDates() {
-    console.log(this.datesValue);
+    // console.log(this.datesValue);
     if (this.datesValue.disable.length > 0) {
       this.options = {
         ...this.options,
@@ -24,6 +24,6 @@ export default class extends Controller {
     } else {
       this.options
     }
-    console.log(this.options);
+    // console.log(this.options);
   }
 }

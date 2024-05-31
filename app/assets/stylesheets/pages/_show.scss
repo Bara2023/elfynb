@@ -30,7 +30,7 @@
 
 
 .formulaire {
-  border: solid;
+  border: solid 1px;
   border-color: #08686C;
   border-radius: 4px;
   width: 300px;
@@ -40,4 +40,22 @@
 
 .navigation {
   margin-top: 50px;
+}
+
+.container-reviews {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 35px;
+  margin: 9px 25px 26px 25px;
+  box-shadow: #779099 0px 6px 16px;
+}
+
+.reviews-form {
+  padding-right: 35px;
+}
+
+.reviews-comment {
+  padding: 35px;
+  background-color: #ECF1F1;
 }

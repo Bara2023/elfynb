@@ -2,6 +2,7 @@ require "open-uri"
 
 User.destroy_all
 Elf.destroy_all
+Review.destroy_all
 
 User.create(first_name: "Paul", last_name: "Porte", phone_number: "0606066060", email: "test@test.com", password: "123456")
 
