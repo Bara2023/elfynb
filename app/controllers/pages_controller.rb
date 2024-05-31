@@ -9,4 +9,5 @@ class PagesController < ApplicationController
   def part
     @bookings = current_user.bookings_as_owner
   end
+
 end
