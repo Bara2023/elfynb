@@ -37,7 +37,7 @@ file = URI.open('app/assets/images/monique.jpeg')
 monique.photo.attach(io: file, filename: "monique.jpeg", content_type: "image/jpeg")
 monique.save
 
-lucas = Elf.new(name: "Lucas", category: "Cuisinie", age: "250", daily_price: "20", user: gordon, description: "Cuisinier exceptionnel, il prépare des plats magiques et délicieux, transformant chaque repas en une expérience culinaire inoubliable.", address: "14 rue des délices")
+lucas = Elf.new(name: "Lucas", category: "Cuisine", age: "250", daily_price: "20", user: gordon, description: "Cuisinier exceptionnel, il prépare des plats magiques et délicieux, transformant chaque repas en une expérience culinaire inoubliable.", address: "14 rue des délices")
 file = URI.open('app/assets/images/dobby.png')
 lucas.photo.attach(io: file, filename: "dobby.png", content_type: "image/png")
 lucas.save
