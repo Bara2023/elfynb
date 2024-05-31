@@ -1,9 +1,10 @@
 .img-show {
-  height: 372px;
-  border-radius: 4px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  object-fit: cover;
+    height: 370px;
+    width: 100%;
+    object-position: top;
+    border-radius: 4px;
+    display: block;
 }
 
 .intro {
@@ -13,11 +14,11 @@
 }
 
 .container-show-elf {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  justify-content: space-around;
   align-items: center;
-  padding: 35px;
-  margin: 9px 25px 26px 25px;
+  padding: 35px 80px 35px 50px;
+  margin: 35px 25px 26px 25px;
   box-shadow: #779099 0px 6px 16px;
 
 }
@@ -57,5 +58,4 @@
 
 .reviews-comment {
   padding: 35px;
-  background-color: #ECF1F1;
 }

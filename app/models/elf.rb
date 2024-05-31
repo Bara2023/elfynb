@@ -6,7 +6,7 @@ class Elf < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
+  
     # NEW CODEEEEEEEE
     scope :filter_by_category, -> (categories) { where(category: categories) if categories.present? }
 

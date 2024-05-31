@@ -1,19 +1,16 @@
 <div class="container-show-elf">
+  <h1> <%= @elf.name %> </h1>
+  <div class="d-flex row">
+    <div class="content-show-elf">
+    <%= cl_image_tag @elf.photo.key, class: "img-show rounded-5"%>
+    </div>
   <div class="content-show-elf">
-    <h1> <%= @elf.name %> </h1>
-    <%= cl_image_tag @elf.photo.key, class: "img-show"%>
     <i class="fa-solid fa-input-numeric"><%= @elf.age %> ans</i>
     <p><%= @elf.category %></p>
     <%= @elf.description %>
-    <div class="navigation">
-<%= link_to "Retour", root_path, class: "btn btn-flat" %>
-<%= link_to "Modifier mon elf", edit_elf_path(@elf), class: "btn btn-flat" %>
-<%= link_to "Delete", elf_path(@elf), class: "btn btn-flat", data: { turbo_method: :delete, confirm: "Are you sure?" } %>
-
-    </div>
   </div>
 
-  <div class="formulaire">
+  <div class="formulaire rounded-5">
     <p><%= @elf.daily_price %> € par jour</p>
     <div data-controller="dynamic-booking-price" data-dynamic-booking-price-price-value="<%= @elf.daily_price %>">
       <%= simple_form_for [@elf, @booking], html: { data: { action: 'change->dynamic-booking-price#updatePrice' }} do |f| %>
@@ -40,7 +37,14 @@
       <% end %>
 
       </br>
+      </div>
     </div>
+  </div>
+
+  <div class="navigation">
+    <%= link_to "Retour", root_path, class: "btn btn-flat" %>
+    <%= link_to "Modifier mon elf", edit_elf_path(@elf), class: "btn btn-flat" %>
+    <%= link_to "Delete", elf_path(@elf), class: "btn btn-flat", data: { turbo_method: :delete, confirm: "Are you sure?" } %>
   </div>
 </div>
 
