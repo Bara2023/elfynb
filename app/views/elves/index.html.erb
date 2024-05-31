@@ -4,12 +4,36 @@
       <div class="col-sm-8 my-3">
         <h1>Trouvez <strong>l'elf</strong> qui vous correspond !</h1>
         <p>Besoin d'aide dans votre vie quotidienne ? </p>
+
+
         <%= form_with url: elves_path, method: :get, class: "d-flex" do %>
+ <%# NEW CODEEEEEEEE %>
+<div class="input-group">
           <%= text_field_tag :query,
                 params[:query],
-                class: "form-control",
+                class: "form-control rounded-start-5",
                 placeholder: "Trouver mon elf"
-            %>
+              %>
+
+
+         <div class="dropdown">
+
+  <%# NEW CODEEEEEEEE %>
+  <button class="btn btn-light dropdown-toggle h-100 rounded-start-0 rounded-end-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="true">
+    Catégorie
+  </button>
+  <ul class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton1">
+    <% @categories.each do |category| %>
+      <%= check_box_tag 'categories[]', category, params[:categories]&.include?(category) %>
+      <%= label_tag "categories_#{category}", category %> <br>
+      <% end %>
+    <%# <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li> %>
+  </ul>
+</div>
+</div>
+
           <%= submit_tag "Rechercher", name: "", class: "btn-flat ms-4 border-0" %>
           <% end %>
         </div>
