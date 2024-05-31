@@ -1,11 +1,14 @@
 class Elf < ApplicationRecord
 
   include PgSearch::Model
-    pg_search_scope :search_by_name_and_description_and_category,
-    against: [ :name, :description, :category ],
+    pg_search_scope :search_by_name_and_description,
+    against: [ :name, :description ],
     using: {
       tsearch: { prefix: true }
-  }
+    }
+
+    # NEW CODEEEEEEEE
+    scope :filter_by_category, -> (categories) { where(category: categories) if categories.present? }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

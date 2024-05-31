@@ -5,9 +5,16 @@ class ElvesController < ApplicationController
 
   def index
     @elves = Elf.all
+    @categories = [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Maître d'hôtel", "Musicien", "Ménage", "Nounou"]
 
     if params[:query].present?
-      @elves = Elf.search_by_name_and_description_and_category(params[:query])
+      @elves = Elf.search_by_name_and_description(params[:query])
+
+    end
+
+     # NEW CODEEEEEEEE
+    if params[:categories].present?
+      @elves = Elf.filter_by_category(params[:categories])
     end
 
     # The `geocoded` scope filters only flats with coordinates
