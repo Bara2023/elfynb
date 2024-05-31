@@ -12,7 +12,7 @@
         <%= simple_form_for(@elf) do |f| %>
           <%= f.input :name %>
           <%= f.input :age %>
-          <%= f.input :category, :collection => [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Maître d'hôtel", "Musicien", "Ménage", "Nounou"] %>
+          <%= f.input :category, :collection => [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Musicien", "Ménage", "Nounou"] %>
           <%= f.input :photo, as: :file %>
       </div>
 
