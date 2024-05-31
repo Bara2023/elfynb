@@ -1,6 +1,6 @@
 <div class="col">
   <%= link_to elf_path(elf), class: "text-decoration-none text-black" do %>
-    <div class="card-product position-relative">
+    <div class="card-product position-relative rounded-5">
       <span class="badge btn btn-outline-light position-absolute m-3"><%= elf.category %></span>
       <% if elf.photo.attached? %>
         <%= cl_image_tag(elf.photo.key, crop: :thumb, gravity: :face) %>
