@@ -6,6 +6,8 @@ class ElvesController < ApplicationController
   def index
     @elves = Elf.all
     @categories = [ "Artiste", "Bricoleur", "Chauffeur", "Coach Sportif", "Cuisine", "Infirmier", "Jardinier", "Maître d'hôtel", "Musicien", "Ménage", "Nounou"]
+    @sort_order = params[:sort_order] == 'asc' ? 'desc' : 'asc'
+    @elves = Elf.order(daily_price: @sort_order)
 
     if params[:query].present?
       @elves = Elf.search_by_name_and_description(params[:query])
