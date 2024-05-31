@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[index destroy]
 
-  get "dashboard", to: "pages#index"
+  get "pro", to: "pages#pro"
+  get "part", to: "pages#part"
 end

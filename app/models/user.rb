@@ -8,5 +8,9 @@ class User < ApplicationRecord
   has_many :elves, dependent: :destroy
   has_many :booked_elves, through: :bookings, source: :elf
 
+  has_many :bookings_as_lodger, class_name: "Booking", foreign_key: "user_id"
+  has_many :bookings_as_owner, through: :elves, source: :bookings
+
   has_many :reviews, dependent: :destroy
+
 end

@@ -1,0 +1,34 @@
+
+
+<div class="container">
+    <div class="row mt-5">
+      <!-- Colonne pour My Bookings -->
+        <div class="col-md-12">
+           <div class="cards">
+              <div class="card-category rounded-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://c8.alamy.com/compfr/t34g0n/maisons-d-elf-en-forme-de-champignons-t34g0n.jpg)">
+                 My Bookings
+                  </div>
+                      <% @bookings.each do |booking| %>
+                      <%= link_to elf_path(booking.elf), class: "text-decoration-none text-black" do %>
+                       <div class="card-elf rounded-3">
+                          <%= cl_image_tag(booking.elf.photo.key, crop: :thumb, gravity: :face) %>
+                          <div class="card-elf-infos w-100">
+                                <h2> <%= booking.elf.name %></h2>
+                            <div class="d-flex justify-content-between">
+                              <div>
+                                <p>du <%= booking.start_date %></p>
+                                <p>au <%= booking.end_date %></p>
+                              </div>
+                              <div>
+                                <p>Total</p>
+                                <p><%= booking.total_price %>€</p>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+               <% end %>
+            <% end %>
+        </div>
+      </div>
+  </div>
+</div>
