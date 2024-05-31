@@ -43,7 +43,10 @@
 
 
 <div class="container px-5">
-  <div class="row row-cols-3 g-4">
+  <% current_sort_order = params[:sort_order] || 'asc' %>
+<% new_sort_order = current_sort_order == 'asc' ? 'desc' : 'asc' %>
+<%= link_to "#{current_sort_order == 'asc' ? 'Prix décroissant ↑' : 'Prix croissant ↓'}", elves_path(sort_order: new_sort_order), class: "btn btn-outline-dark" %>
+  <div class="row row-cols-3 g-4 mt-1">
     <% if @elves.any? %>
       <%= render @elves %>
     <% else %>
