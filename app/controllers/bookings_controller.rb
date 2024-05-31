@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.all
   end
@@ -7,7 +6,6 @@ class BookingsController < ApplicationController
   def new
     @elf = Elf.find(params[:elf_id])
     @booking = Booking.new
-
   end
 
   def create
