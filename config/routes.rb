@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "elves#index"
 
-  resources :elves, only: %w[index show new create edit update destroy] do
-    resources :bookings, only: %w[new create]
+  resources :elves, only: %i[index show new create edit update destroy] do
+    resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: %w[index destroy]
+  resources :bookings, only: %i[index destroy]
 
   get "dashboard", to: "pages#index"
 end

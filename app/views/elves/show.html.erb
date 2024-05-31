@@ -8,6 +8,8 @@
     <div class="navigation">
 <%= link_to "Retour", root_path, class: "btn btn-flat" %>
 <%= link_to "Modifier mon elf", edit_elf_path(@elf), class: "btn btn-flat" %>
+<%= link_to "Delete", elf_path(@elf), class: "btn btn-flat", data: { turbo_method: :delete, confirm: "Are you sure?" } %>
+
     </div>
   </div>
 
