@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :elves, dependent: :destroy
   has_many :booked_elves, through: :bookings, source: :elf
+
+  has_many :reviews, dependent: :destroy
 end
