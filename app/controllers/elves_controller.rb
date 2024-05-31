@@ -57,7 +57,7 @@ class ElvesController < ApplicationController
 
   def destroy
     @elf.destroy
-    redirect_to dashboard_path, status: :see_other
+    redirect_to elves_path, status: :see_other
   end
 
   private
